@@ -19,6 +19,7 @@ body {
 }
 body {
   margin: 0;
+  padding-top: 150px;
   background: var(--bg);
   color: #111827;
   -webkit-font-smoothing: antialiased;
@@ -43,6 +44,11 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* keeps it above other elements */
 }
 .header-inner {
   display: flex;
@@ -254,8 +260,8 @@ body {
 /* Machinery */
 .machinery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.5rem;
   margin-top: 1rem;
 }
 .machinery-card {
@@ -294,7 +300,7 @@ body {
 }
 .client-logo img {
   max-width: 100%;
-  max-height: 60px;
+  height: 100px;
   object-fit: contain;
 }
 
@@ -316,11 +322,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  align-items: start;
+  align-items: end;
 }
 .contact-map iframe {
   width: 100%;
-  height: 260px;
+  height: 300px;
   border: 0;
   border-radius: 8px;
 }
@@ -336,6 +342,12 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+  body{
+    padding: 0 5%;
+  }
+}
+
 @media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
