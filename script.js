@@ -75,23 +75,24 @@ document.addEventListener('DOMContentLoaded', function () {
   // We'll create a gentle auto-scroll: move left by 1px every 30ms; reset when scrolled far.
   const clientsSlider = document.getElementById('clientsSlider');
   if (clientsSlider) {
-    let scrollSpeed = 0.5; // px per frame
-    let running = true;
+    clientsSlider.innerHTML += clientsSlider.innerHTML;
+    // let scrollSpeed = 0.5; // px per frame
+    // let running = true;
 
-    let lastFrame = performance.now();
-    function step(now) {
-      const dt = now - lastFrame;
-      lastFrame = now;
-      if (running) {
-        clientsSlider.scrollLeft += scrollSpeed * dt / 16; // normalized
-        // If scrolled near end, reset to 0 to create loop effect
-        if (clientsSlider.scrollLeft > clientsSlider.scrollWidth / 2) {
-          clientsSlider.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+    // let lastFrame = performance.now();
+    // function step(now) {
+    //   const dt = now - lastFrame;
+    //   lastFrame = now;
+    //   if (running) {
+    //     clientsSlider.scrollLeft += scrollSpeed * dt / 16; // normalized
+    //     // If scrolled near end, reset to 0 to create loop effect
+    //     if (clientsSlider.scrollLeft > clientsSlider.scrollWidth / 2) {
+    //       clientsSlider.scrollLeft = 0;
+    //     }
+    //   }
+    //   requestAnimationFrame(step);
+    // }
+    // requestAnimationFrame(step);
 
     clientsSlider.addEventListener('mouseenter', () => running = false);
     clientsSlider.addEventListener('mouseleave', () => running = true);
