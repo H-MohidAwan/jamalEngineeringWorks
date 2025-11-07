@@ -50,49 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
     slideBy(card.offsetWidth + parseInt(getComputedStyle(slider).gap || 16));
   });
 
-  // SEE ALL PRODUCTS toggle: shows full grid and hides slider
-  const toggleBtn = document.getElementById('toggleAllProducts');
-  const allGrid = document.getElementById('allProductsGrid');
-  const productsSection = document.getElementById('products');
-  toggleBtn.addEventListener('click', () => {
-    const isHidden = allGrid.classList.contains('hidden');
-    if (isHidden) {
-      // show grid, hide slider controls
-      allGrid.classList.remove('hidden');
-      document.querySelector('.products-slider-wrap').classList.add('hidden');
-      toggleBtn.textContent = 'Show Slider';
-      // scroll to expanded grid
-      allGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      allGrid.classList.add('hidden');
-      document.querySelector('.products-slider-wrap').classList.remove('hidden');
-      toggleBtn.textContent = 'See All Products';
-      productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
+
 
   // CLIENTS slider auto-scroll using JS fallback (in case CSS animation not desired)
   // We'll create a gentle auto-scroll: move left by 1px every 30ms; reset when scrolled far.
   const clientsSlider = document.getElementById('clientsSlider');
   if (clientsSlider) {
-    clientsSlider.innerHTML += clientsSlider.innerHTML;
-    // let scrollSpeed = 0.5; // px per frame
-    // let running = true;
-
-    // let lastFrame = performance.now();
-    // function step(now) {
-    //   const dt = now - lastFrame;
-    //   lastFrame = now;
-    //   if (running) {
-    //     clientsSlider.scrollLeft += scrollSpeed * dt / 16; // normalized
-    //     // If scrolled near end, reset to 0 to create loop effect
-    //     if (clientsSlider.scrollLeft > clientsSlider.scrollWidth / 2) {
-    //       clientsSlider.scrollLeft = 0;
-    //     }
-    //   }
-    //   requestAnimationFrame(step);
-    // }
-    // requestAnimationFrame(step);
 
     clientsSlider.addEventListener('mouseenter', () => running = false);
     clientsSlider.addEventListener('mouseleave', () => running = true);
